@@ -1,0 +1,111 @@
+@charset "utf-8";
+/* CSS Document */
+
+#background{
+	width: 100vw; /* background full màn hình */
+	height: 100vh;
+	background-size: 100% 100%;
+	background-image: url("../res/image/background/usgk$library$canvas_editor$backgrounds$images$25creambg@2x.png");
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: 0;
+}
+#corner{
+	width: 17vw;
+	height: 28vh;
+	background-size: 100% 100%;
+	background-image: url("../res/image/corner/leaf_nav_kodi_platform@2x.png");
+	position: absolute;
+	left: 83vw;
+	top: 72vh; /* 20 30 80 70 là các thồn số phù hợp */
+	z-index: 1;
+}
+
+#kodi{
+	width: 9vw;
+	height: 30vh;
+	background-size: 100% 100%;
+	background-image: url("../res/image/Kodi/tips_bear-ipad@2x.png");
+	position: absolute;
+	left: 89vw;
+	top: 70vh; /* 14 40 83 60 là các thồn số phù hợp */
+	z-index: 2;
+}
+
+#home{
+	width: 8vw;
+	height: 13vh;
+	background-size: 100% 100%;
+	background-image: url("../res/image/home-button/leaf_nav_home_btn@2x.png");
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: 1;
+}
+
+#animal1{
+	width: 17vw;
+	height: 32vh;
+	background-size: 100% 100%;
+	background-image: url("../res/image/animal/usgk$library$canvas_editor$stickers$images$sticker023_goat-ipad@2x.png");
+	position: absolute;
+	left: 13vw;
+	top: 31vh; /* 14 40 83 60 là các thồn số phù hợp */
+	z-index: 1;
+}
+
+#animal2{
+	width: 17vw;
+	height: 32vh;
+	background-size: 100% 100%;
+	background-image: url("../res/image/animal/usgk$library$canvas_editor$stickers$images$sticker023_goat-ipad@2x.png");
+	position: absolute;
+	left: 40vw;
+	top: 31vh; /* 14 40 83 60 là các thồn số phù hợp */
+	z-index: 1;
+}
+
+#animal3{
+	width: 17vw;
+	height: 32vh;
+	background-size: 100% 100%;
+	background-image: url("../res/image/animal/usgk$library$canvas_editor$stickers$images$sticker023_goat-ipad@2x.png");
+	position: absolute;
+	left: 67vw;
+	top: 31vh; /* 14 40 83 60 là các thồn số phù hợp */
+	z-index: 1;
+}
+
+#letter1{
+	width: 4.5vw;
+	height: 13.5vh;
+	background-size: 100% 100%;
+	background-image: url("../res/image/letter/usgk$commonassets$collection$alphabet$lowercasecolora@2x.png");
+	position: absolute;
+	left: 4.2vw;
+	top: 12.5vh;
+	z-index: 2;
+}
+
+#letter2{
+	width: 4.5vw;
+	height: 13.5vh;
+	background-size: 100% 100%;
+	background-image: url("../res/image/letter/usgk$commonassets$collection$alphabet$lowercasecolore@2x.png");
+	position: absolute;
+	left: 4.2vw;
+	top: 12.5vh;
+	z-index: 2;
+}
+
+#letter3{
+	width: 4.5vw;
+	height: 13.5vh;
+	background-size: 100% 100%;
+	background-image: url("../res/image/letter/usgk$commonassets$collection$alphabet$lowercasecolorc@2x.png");
+	position: absolute;
+	left: 4.2vw;
+	top: 12.5vh;
+	z-index: 2;
+}

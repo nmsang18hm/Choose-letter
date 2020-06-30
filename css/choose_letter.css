@@ -129,5 +129,25 @@
 	z-index: 4;
 }
 
+#bghome {
+	width: 100vw; /* background full màn hình */
+	height: 100vh;
+	background-size: 100% 100%;
+	background-image: url("../res/image/background/usgk$library$canvas_editor$backgrounds$images$25creambg@2x.png");
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: 1;
+}
 
+#playbutton {
+	width: 25vw;
+	height: 30vh;
+	background-size: 100% 100%;
+	background-image: url("../res/image/book_play_btn-ipad@2x.png");
+	position: absolute;
+	left: 37vw;
+	top: 32vh;
+	z-index: 2;
+}
 

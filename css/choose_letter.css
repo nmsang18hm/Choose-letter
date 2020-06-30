@@ -81,7 +81,6 @@
 	width: 4.5vw;
 	height: 13.5vh;
 	background-size: 100% 100%;
-	background-image: url("../res/image/letter/usgk$commonassets$collection$alphabet$lowercasecolora@2x.png");
 	position: absolute;
 	left: 4.2vw;
 	top: 14vh;
@@ -92,7 +91,6 @@
 	width: 4.5vw;
 	height: 13.5vh;
 	background-size: 100% 100%;
-	background-image: url("../res/image/letter/usgk$commonassets$collection$alphabet$lowercasecolorb@2x.png");
 	position: absolute;
 	left: 4.2vw;
 	top: 14vh;
@@ -103,9 +101,33 @@
 	width: 4.5vw;
 	height: 13.5vh;
 	background-size: 100% 100%;
-	background-image: url("../res/image/letter/usgk$commonassets$collection$alphabet$lowercasecolorc@2x.png");
 	position: absolute;
 	left: 4.2vw;
 	top: 14vh;
 	z-index: 2;
 }
+
+#victory{
+	width: 82vw;
+	height: 72vh;
+	background-size: 100% 100%;
+	background-image: url("../res/image/victory/bg-victory.png");
+	position: absolute;
+	left: -100vw;
+	top: -100vh;
+	z-index: 3;
+}
+
+#restart{
+	width: 20vw;
+	height: 10vh;
+	background-size: 100% 100%;
+	background-image: url("../res/image/victory/restart.png");
+	position: absolute;
+	left: 30vw;
+	top: 62vh;
+	z-index: 4;
+}
+
+
+

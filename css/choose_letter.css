@@ -44,7 +44,7 @@
 	z-index: 1;
 }
 
-#animal1{
+#animal0{
 	width: 17vw;
 	height: 32vh;
 	background-size: 100% 100%;
@@ -55,7 +55,7 @@
 	z-index: 1;
 }
 
-#animal2{
+#animal1{
 	width: 17vw;
 	height: 32vh;
 	background-size: 100% 100%;
@@ -66,7 +66,7 @@
 	z-index: 1;
 }
 
-#animal3{
+#animal2{
 	width: 17vw;
 	height: 32vh;
 	background-size: 100% 100%;
@@ -75,6 +75,16 @@
 	left: 67vw;
 	top: 31vh; /* 14 40 83 60 là các thồn số phù hợp */
 	z-index: 1;
+}
+
+#letter0{
+	width: 4.5vw;
+	height: 13.5vh;
+	background-size: 100% 100%;
+	position: absolute;
+	left: 4.2vw;
+	top: 14vh;
+	z-index: 2;
 }
 
 #letter1{
@@ -88,16 +98,6 @@
 }
 
 #letter2{
-	width: 4.5vw;
-	height: 13.5vh;
-	background-size: 100% 100%;
-	position: absolute;
-	left: 4.2vw;
-	top: 14vh;
-	z-index: 2;
-}
-
-#letter3{
 	width: 4.5vw;
 	height: 13.5vh;
 	background-size: 100% 100%;
@@ -150,4 +150,3 @@
 	top: 32vh;
 	z-index: 2;
 }
-

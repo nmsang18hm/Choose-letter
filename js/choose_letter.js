@@ -1,35 +1,15 @@
 // JavaScript Document
 
 //Các hàm
+
+// Hàm khởi tạo
 function initial(stage) {
 	for(var i = 0; i < 3; i++) {
-		objanimal[i].style.width = "17vw";
-		objanimal[i].style.height = "32vh";
-		objletter[i].style.width = "4.5vw";
-		objletter[i].style.height = "13.5vh";
-		objrestart.style.width = "20vw";
-		objrestart.style.height = "10vh";
-		objrestart.style.left = "30vw";
-		objrestart.style.top = "62vh";
-		if(stage == 1) {
-			objletter[i].style.left = "4.2vw";
-			objletter[i].style.top = "14vh";
-		}
-		else {
+		objanimal[i].style = "";
+		objletter[i].style = "";
+		if(stage == 2) {
 			objletter[i].style.left = "6vw";
 			objletter[i].style.top = "10vh";
-		}
-		if(i == 0) {
-			objanimal[i].style.left = "13vw";
-			objanimal[i].style.top = "31vh";
-		}
-		else if(i == 1) {
-			objanimal[i].style.left = "40vw";
-			objanimal[i].style.top = "31vh";
-		}
-		else {
-			objanimal[i].style.left = "67vw";
-			objanimal[i].style.top = "31vh";
 		}
 		objletter[i].style.backgroundImage = "url('../res/image/letter/usgk$commonassets$collection$alphabet$lowercasecolor" + letter[(stage-1)*3 + i] + "@2x.png')";
 		audioletterK = new Audio('../res/sound/letter/usgk$kvar001$theletter' + key[(stage-1)] + ".mp3");
@@ -38,6 +18,7 @@ function initial(stage) {
 	talkwhichone();
 }
 
+// Hàm âm thanh câu: which one has the letter ?, tap it
 function talkwhichone() {
 	audiowoh.play();
 	setTimeout(function timer() {
@@ -75,6 +56,7 @@ var letter = ['a', 'b', 'c', 'd', 'c', 'f'];
 var stage = 1;
 var limitstage = 2;
 
+// Hàm main
 objplay.onclick = function() {
 	objbgplay.style.left = "-100vw";
 	// Gán lại các giá trị animation(chưa biết cách khắc phục)
@@ -98,18 +80,15 @@ objplay.onclick = function() {
 				else {
 					objanimal[i].style.backgroundImage = "url('../res/image/animal/usgk$library$canvas_editor$stickers$images$sticker024_hog-ipad@2x$white.png')";
 				}
-				for(let k=1; k<700; k++) {
-					setTimeout(function timer(){
-					objanimal[i].style.width = parseFloat(objanimal[i].style.width) + 0.01 + "vw";
-					objanimal[i].style.left = parseFloat(objanimal[i].style.left) - 0.005 + "vw";
-					objletter[i].style.width = parseFloat(objletter[i].style.width) + 0.00265 + "vw";
-					objletter[i].style.left = parseFloat(objletter[i].style.left) + 0.003675 + "vw";
-					objanimal[i].style.height = parseFloat(objanimal[i].style.height) + 0.01 + "vh";
-					objanimal[i].style.top = parseFloat(objanimal[i].style.top) - 0.005 + "vh";
-					objletter[i].style.height = parseFloat(objletter[i].style.height) + 0.00422 + "vh";
-					objletter[i].style.top = parseFloat(objletter[i].style.top) + 0.00289 + "vh";
-					}, k*0.5 );
-				}
+				
+				// Hiệu ứng phóng to
+				$('#animal' + i).animate(
+					{width: "+=7vw", height: "+=7vh", left: "-=3.5vw", top: "-=3.5vh"}, 350
+				);
+				$('#letter' + i).animate(
+					{width: "+=1.85vw", height: "+=2.96vh", left: "+=2vw", top: "+=2.3vh"}, 350
+				);
+				
 				//Dưới đây là phần chuyển màn chơi
 				stage++;
 				setTimeout(function timer(){
@@ -135,32 +114,23 @@ objplay.onclick = function() {
 				setTimeout(function timer() {
 					audiotryagain.play();
 				}, 2000);
-				for(let k=1; k<400; k++) {
-					setTimeout(function timer(){
-					objanimal[i].style.width = parseFloat(objanimal[i].style.width) + 0.01 + "vw";
-					objanimal[i].style.left = parseFloat(objanimal[i].style.left) - 0.005 + "vw";
-					objletter[i].style.width = parseFloat(objletter[i].style.width) + 0.00265 + "vw";
-					objletter[i].style.left = parseFloat(objletter[i].style.left) + 0.003675 + "vw";
-					objanimal[i].style.height = parseFloat(objanimal[i].style.height) + 0.01 + "vh";
-					objanimal[i].style.top = parseFloat(objanimal[i].style.top) - 0.005 + "vh";
-					objletter[i].style.height = parseFloat(objletter[i].style.height) + 0.00422 + "vh";
-					objletter[i].style.top = parseFloat(objletter[i].style.top) + 0.00289 + "vh";
-					}, k*0.5 );
-				}
+				// Hiệu ứng phóng to
+				$('#animal' + i).animate(
+					{width: "+=4vw", height: "+=4vh", left: "-=2vw", top: "-=2vh"}, 200
+				);
+				$('#letter' + i).animate(
+					{width: "+=1.06vw", height: "+=1.69vh", left: "+=1vw", top: "+=1.16vh"}, 200
+				);
+				
+				// Hiệu ứng thu nhỏ
 				setTimeout(function timer() {
-					for(let k=1; k<400; k++) {
-					setTimeout(function timer(){
-					objanimal[i].style.width = parseFloat(objanimal[i].style.width) - 0.01 + "vw";
-					objanimal[i].style.left = parseFloat(objanimal[i].style.left) + 0.005 + "vw";
-					objletter[i].style.width = parseFloat(objletter[i].style.width) - 0.00265 + "vw";
-					objletter[i].style.left = parseFloat(objletter[i].style.left) - 0.003675 + "vw";
-					objanimal[i].style.height = parseFloat(objanimal[i].style.height) - 0.01 + "vh";
-					objanimal[i].style.top = parseFloat(objanimal[i].style.top) + 0.005 + "vh";
-					objletter[i].style.height = parseFloat(objletter[i].style.height) - 0.00422 + "vh";
-					objletter[i].style.top = parseFloat(objletter[i].style.top) - 0.00289 + "vh";
-					}, k*0.5 );
-				}
-				},175);
+					$('#animal' + i).animate(
+						{width: "-=4vw", height: "-=4vh", left: "+=2vw", top: "+=2vh"}, 200
+					);
+					$('#letter' + i).animate(
+						{width: "-=1.06vw", height: "-=1.69vh", left: "-=1vw", top: "-=1.16vh"}, 200
+					);
+				}, 200);
 			}
 		}
 	})(i);

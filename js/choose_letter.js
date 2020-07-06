@@ -1,4 +1,11 @@
 // JavaScript Document
+const POSITION_HIDE = "-100vw";
+const DELAY_RESULT = 1000;
+const DELAY_COMMENT = 2000;
+const POSITION_LETTER_LEFT = ["4.2vw", "6vw"];
+const POSITION_LETTER_TOP = ["14vh", "10vh"];
+const POSITION_CONGRATULATION_LEFT = "8.5vw";
+const POSITION_CONGRATULATION_TOP = "15vh";
 
 //Biến đối tượng âm thanh
 var audiowoh = new Audio('../res/sound/usgk$kodivoice$whichonehas.mp3');// audio which one has
@@ -17,31 +24,39 @@ var objanimal = document.getElementsByClassName("animal");
 var objletter = document.getElementsByClassName("letter");
 var objbgcongratulation = document.getElementById("congratulation");
 var objrestart = document.getElementById("restart");
-var objkodi = document.getElementById("kodi");
+var objkodi = document.getElementById("kodi"); // Kodi là tên con gấu
 var objplay = document.getElementById("playbutton");
 var objbgplay = document.getElementById("bghome");
 
 //Biến nội dung trò chơi
-var key = ['b', 'f'];
-var letter = ['a', 'b', 'c', 'd', 'c', 'f'];
-var stage = 1;
-var limitstage = 2;
+var key;
+var letter = [];
+var stage = 1; // Màn đầu tiên là 1
+var limitstage;
 
 //Các hàm
+function loadData() {
+	var mydata = JSON.parse(data);
+	key = mydata[stage-1].key;
+	limitstage = mydata.length;
+	for(var i = 0; i < objanimal.length; i++) {
+		letter[i] = mydata[stage-1].letter[i];
+	}
+}
+
 function initial(stage) {
-	objbgplay.style.left = "-100vw";
+	objbgplay.style.left = POSITION_HIDE;
+	loadData();
 	objbackground.style.backgroundImage = "url('../res/image/background/" + stage + ".png')";
-	for(var i = 0; i < 3; i++) {
+	for(var i = 0; i < objanimal.length; i++) {
 		objanimal[i].style = "";
 		objletter[i].style = "";
 		objanimal[i].style.backgroundImage = "url('../res/image/animal/normal" + stage + ".png')";
-		if(stage == 2) {
-			objletter[i].style.left = "6vw";
-			objletter[i].style.top = "10vh";
-		}
-		objletter[i].style.backgroundImage = "url('../res/image/letter/usgk$commonassets$collection$alphabet$lowercasecolor" + letter[(stage-1)*3 + i] + "@2x.png')";
-		audioletterK = new Audio('../res/sound/letter/usgk$kvar001$theletter' + key[(stage-1)] + ".mp3");
-		audioletterV[i] = new Audio("../res/sound/chucaitiengviet/usgk$library$canvas_editor$stickers$images$sticker_lowercasecolor" + letter[(stage-1)*3 + i] + ".mp3");
+		objletter[i].style.left = POSITION_LETTER_LEFT[stage-1];
+		objletter[i].style.top = POSITION_LETTER_TOP[stage-1];
+		objletter[i].style.backgroundImage = "url('../res/image/letter/usgk$commonassets$collection$alphabet$lowercasecolor" + letter[i] + "@2x.png')";
+		audioletterK = new Audio('../res/sound/letter/usgk$kvar001$theletter' + key + ".mp3");
+		audioletterV[i] = new Audio("../res/sound/chucaitiengviet/usgk$library$canvas_editor$stickers$images$sticker_lowercasecolor" + letter[i] + ".mp3");
 	}
 	playAudioIntroduce();
 }
@@ -59,19 +74,19 @@ function playAudioIntroduce() {
 function playAudioCorrect() {
 	setTimeout(function timer() {
 		audiocorrect.play();
-	}, 1000);
+	}, DELAY_RESULT);
 	setTimeout(function timer() {
 		audiogoodjoob.play();
-	}, 2000);
+	}, DELAY_COMMENT);
 }
 
 function playAudioIncorrect() {
 	setTimeout(function timer() {
 		audioincorrect.play();
-	}, 1000);
+	}, DELAY_RESULT);
 	setTimeout(function timer() {
 		audiotryagain.play();
-	}, 2000);
+	}, DELAY_COMMENT);
 }
 
 function changeImageWhenCorrect(i) {
@@ -79,6 +94,8 @@ function changeImageWhenCorrect(i) {
 }
 
 function zoomInWhenCorrect(i) {
+	//Các chỉ số dưới đây là tự căn chỉnh cho phù hợp, vì chúng gắn liền với phép toán và đơn vị
+	//nên nếu dùng biến hoặc hằng sẽ rắc rối
 	$('#animal' + i).animate(
 		{width: "+=7vw", height: "+=7vh", left: "-=3.5vw", top: "-=3.5vh"}, 350
 	);
@@ -88,6 +105,8 @@ function zoomInWhenCorrect(i) {
 }
 
 function zoomWhenIncorrect(status, i) {
+	//Các chỉ số dưới đây là tự căn chỉnh cho phù hợp, vì chúng gắn liền với phép toán và đơn vị
+	//nên nếu dùng biến hoặc hằng sẽ rắc rối
 	if(status == '+') {
 		$('#animal' + i).animate(
 			{width: "+=4vw", height: "+=4vh", left: "-=2vw", top: "-=2vh"}, 200
@@ -107,40 +126,38 @@ function zoomWhenIncorrect(status, i) {
 
 function victory() {
 	audiocongratulation.play();
-	objbgcongratulation.style.left = "8.5vw";
-	objbgcongratulation.style.top = "15vh";
+	objbgcongratulation.style.left = POSITION_CONGRATULATION_LEFT;
+	objbgcongratulation.style.top = POSITION_CONGRATULATION_TOP;
+}
+
+function changeStage() {
+	stage++;
+	setTimeout(function timer(){
+		if(stage <= limitstage) {
+			initial(stage);
+		}
+		else {
+			victory();
+		}
+	}, 4000);
 }
 
 // Hàm main
 objplay.onclick = function() {
 	initial(stage);
-
-	// Xử lý các sự kiện lựa chọn của người chơi
+	// Dưới đây xử lý các sự kiện lựa chọn của người chơi
 	for(var i = 0; i < objanimal.length; i++) (function(i){
 		objanimal[i].onclick = function() {
 			audioletterV[i].play();
-			if(letter[(stage-1)*3 + i] == key[stage-1]){
+			if(letter[i] == key){
 				playAudioCorrect();
 				changeImageWhenCorrect(i);
 				zoomInWhenCorrect(i);
-				
-				
-				//Dưới đây là phần chuyển màn chơi
-				stage++;
-				setTimeout(function timer(){
-					if(stage <= limitstage) {
-						initial(stage);
-					}
-					else {
-						victory();
-					}
-				}, 4000)
+				changeStage();
 			}
 			else {
 				playAudioIncorrect();
-				
 				zoomWhenIncorrect('+', i);
-				
 				setTimeout(function timer() {
 					zoomWhenIncorrect('-', i)
 				}, 200);

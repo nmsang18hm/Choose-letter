@@ -1,0 +1,1 @@
+var data = '[ {"key" : "b", "letter" : ["a", "b", "c"]}, {"key" : "f", "letter" : ["d", "e", "f"]} ]';

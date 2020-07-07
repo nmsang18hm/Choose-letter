@@ -187,14 +187,6 @@ $(document).ready(function(e) {
 		}, DELAY_APPEAR_ANIMAL*2);
 	}
 	
-	function loadImage() {
-		objAnimal[0].style.backgroundImage = "url('../res/image/animal/correct" + stage + ".png')";
-		objKodi.style.backgroundImage = "url('../res/image/Kodi/usgk$library$canvas_editor$stickers$images$sticker005_bearchar_4-ipad@2x.png')";
-		objKodi.style.backgroundImage = "url('../res/image/Kodi/usgk$library$canvas_editor$stickers$images$sticker005_bearchar_3-ipad@2x.png')";
-		objKodi.style.backgroundImage = "url('../res/image/Kodi/usgk$library$canvas_editor$stickers$images$sticker005_bearchar_2-ipad@2x.png')";
-		objKodi.style.backgroundImage = "url('../res/image/Kodi/usgk$library$canvas_editor$stickers$images$sticker005_bearchar_1-ipad@2x.png')";
-	}
-
 	function main() {
 			for(var i = 0; i < objAnimal.length; i++) (function(i){
 				objAnimal[i].onclick = function() {
@@ -229,7 +221,6 @@ $(document).ready(function(e) {
 	}
 
 	objPlay.onclick = function() {
-		loadImage();
 		initial(main);
 		soundtrack.play();
 	}

@@ -1,10 +1,12 @@
 I. Giới thiệu phần mềm
+
 1. Mục đích: Giúp các em nhỏ nhận biết các chữ cái và cách phát âm.
 2. Hướng dẫn sử dụng:
 + Bấm Play để bắt đầu.
 + Chọn đúng chữ cái mà Gấu Kodi hướng dẫn
 
 II. Giới thiệu cấu trúc phần mềm
+
 1.Tài nguyên: Đã có đầy đủ để phát triển các màn chơi
 2. Cấu trúc màn chơi:
 + Có thể gia tăng số màn chơi nhưng cần lấy thêm hình ảnh và chỉ số tương ứng

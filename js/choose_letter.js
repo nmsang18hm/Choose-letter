@@ -7,8 +7,6 @@ const POSITION_LETTER_TOP = ["14vh", "10vh"];
 const POSITION_CONGRATULATION_LEFT = "8.5vw";
 const POSITION_CONGRATULATION_TOP = "15vh";
 
-
-
 $(document).ready(function(e) {
 	//Biến đối tượng âm thanh
 	var audioWhichOneHas = new Audio('../res/sound/usgk$kodivoice$whichonehas.mp3');// audio which one has

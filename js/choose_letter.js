@@ -34,6 +34,7 @@ var key;
 var letter = [];
 var stage = 1; // Màn đầu tiên là 1
 var limitStage;
+var gameBusy = false;
 
 //Các hàm
 function loadData() {
@@ -45,7 +46,8 @@ function loadData() {
 	}
 }
 
-function initial(stage) {
+function initial(callback) {
+	gameBusy = true;
 	objBGPlay.style.left = POSITION_HIDE;
 	loadData();
 	objBackground.style.backgroundImage = "url('../res/image/background/" + stage + ".png')";
@@ -63,9 +65,14 @@ function initial(stage) {
 	setTimeout(function timer() {
 		playAudioIntroduce();
 	}, DELAY_APPEAR_ANIMAL*3);
+	setTimeout(function timer() {
+		gameBusy = false;
+		callback();
+	}, 5000);
 }
 
 function playAudioIntroduce() {
+	gameBusy = true;
 	objKodi.style.backgroundImage = "url('../res/image/Kodi/usgk$library$canvas_editor$stickers$images$sticker005_bearchar_3-ipad@2x.png')";
 	audioWhichOneHas.play();
 	setTimeout(function timer() {
@@ -76,10 +83,12 @@ function playAudioIntroduce() {
 	}, 3000);
 	setTimeout(function timer() {
 		objKodi.style.backgroundImage = "";
+		gameBusy = false;
 	}, 4000);
 }
 
 function playaudioCorrect() {
+	gameBusy = true;
 	setTimeout(function timer() {
 		objKodi.style.backgroundImage = "url('../res/image/Kodi/usgk$library$canvas_editor$stickers$images$sticker005_bearchar_4-ipad@2x.png')";
 		audioCorrect.play();
@@ -88,9 +97,13 @@ function playaudioCorrect() {
 		objKodi.style.backgroundImage = "";
 		audioGoodJob.play();
 	}, DELAY_RESULT*2);
+	setTimeout(function timer() {
+		gameBusy = false;
+	}, DELAY_RESULT*4);
 }
 
 function playaudioIncorrect() {
+	gameBusy = true;
 	setTimeout(function timer() {
 		objKodi.style.backgroundImage = "url('../res/image/Kodi/usgk$library$canvas_editor$stickers$images$sticker005_bearchar_2-ipad@2x.png')";
 		audioIncorrect.play();
@@ -99,6 +112,9 @@ function playaudioIncorrect() {
 		objKodi.style.backgroundImage = "";
 		audioTryAgain.play();
 	}, DELAY_RESULT*2);
+	setTimeout(function timer() {
+		gameBusy = false;
+	}, DELAY_RESULT*3);
 }
 
 function changeImageWhenCorrect(i) {
@@ -140,18 +156,19 @@ function victory() {
 	audioCongratulation.play();
 	objBGCongratulation.style.left = POSITION_CONGRATULATION_LEFT;
 	objBGCongratulation.style.top = POSITION_CONGRATULATION_TOP;
+	gameBusy = true;
 }
 
 function changeStage() {
 	stage++;
 	setTimeout(function timer(){
 		if(stage <= limitStage) {
-			initial(stage);
+			initial(main);
 		}
 		else {
 			victory();
 		}
-	}, 4000);
+	}, DELAY_RESULT*4);
 }
 
 function appearAnimal() {
@@ -167,34 +184,39 @@ function appearAnimal() {
 	}, DELAY_APPEAR_ANIMAL*2);
 }
 
-// Hàm main
-objPlay.onclick = function() {
-	initial(stage);
-	// Dưới đây xử lý các sự kiện lựa chọn của người chơi
-	for(var i = 0; i < objAnimal.length; i++) (function(i){
-		objAnimal[i].onclick = function() {
-			audioLetterVN[i].play();
-			if(letter[i] == key){
-				playaudioCorrect();
-				changeImageWhenCorrect(i);
-				zoomInWhenCorrect(i);
-				changeStage();
+function main() {
+		for(var i = 0; i < objAnimal.length; i++) (function(i){
+			objAnimal[i].onclick = function() {
+				if(!gameBusy) {
+					audioLetterVN[i].play();
+					if(letter[i] == key){
+						playaudioCorrect();
+						changeImageWhenCorrect(i);
+						zoomInWhenCorrect(i);
+						changeStage();
+					}
+					else {
+						playaudioIncorrect();
+						zoomWhenIncorrect('+', i);
+						setTimeout(function timer() {
+							zoomWhenIncorrect('-', i)
+						}, 200);
+					}
+				}
 			}
-			else {
-				playaudioIncorrect();
-				zoomWhenIncorrect('+', i);
-				setTimeout(function timer() {
-					zoomWhenIncorrect('-', i)
-				}, 200);
+		})(i);
+
+		objRestart.onclick = function() {
+			window.location = document.URL;
+		}
+
+		objKodi.onclick = function() {
+			if(!gameBusy) {
+				playAudioIntroduce();
 			}
 		}
-	})(i);
+}
 
-	objRestart.onclick = function() {
-		window.location = document.URL;
-	}
-
-	objKodi.onclick = function() {
-		playAudioIntroduce();
-	}
+objPlay.onclick = function() {
+	initial(main);
 }

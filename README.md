@@ -3,6 +3,7 @@ I. Giới thiệu phần mềm
 2. Hướng dẫn sử dụng:
 + Bấm Play để bắt đầu.
 + Chọn đúng chữ cái mà Gấu Kodi hướng dẫn
+
 II. Giới thiệu cấu trúc phần mềm
 1.Tài nguyên: Đã có đầy đủ để phát triển các màn chơi
 2. Cấu trúc màn chơi:

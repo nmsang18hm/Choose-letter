@@ -1,7 +1,6 @@
 // JavaScript Document
 const POSITION_HIDE = "-100vw";
 const DELAY_RESULT = 1000;
-const DELAY_COMMENT = 2000;
 const DELAY_APPEAR_ANIMAL = 500;
 const POSITION_LETTER_LEFT = ["4.2vw", "6vw"];
 const POSITION_LETTER_TOP = ["14vh", "10vh"];
@@ -67,6 +66,7 @@ function initial(stage) {
 }
 
 function playAudioIntroduce() {
+	objKodi.style.backgroundImage = "url('../res/image/Kodi/usgk$library$canvas_editor$stickers$images$sticker005_bearchar_3-ipad@2x.png')";
 	audioWhichOneHas.play();
 	setTimeout(function timer() {
 		audioLetterKey.play();
@@ -74,24 +74,31 @@ function playAudioIntroduce() {
 	setTimeout(function timer() {
 		audioTapIt.play();
 	}, 3000);
+	setTimeout(function timer() {
+		objKodi.style.backgroundImage = "";
+	}, 4000);
 }
 
 function playaudioCorrect() {
 	setTimeout(function timer() {
+		objKodi.style.backgroundImage = "url('../res/image/Kodi/usgk$library$canvas_editor$stickers$images$sticker005_bearchar_4-ipad@2x.png')";
 		audioCorrect.play();
 	}, DELAY_RESULT);
 	setTimeout(function timer() {
+		objKodi.style.backgroundImage = "";
 		audioGoodJob.play();
-	}, DELAY_COMMENT);
+	}, DELAY_RESULT*2);
 }
 
 function playaudioIncorrect() {
 	setTimeout(function timer() {
+		objKodi.style.backgroundImage = "url('../res/image/Kodi/usgk$library$canvas_editor$stickers$images$sticker005_bearchar_2-ipad@2x.png')";
 		audioIncorrect.play();
 	}, DELAY_RESULT);
 	setTimeout(function timer() {
+		objKodi.style.backgroundImage = "";
 		audioTryAgain.play();
-	}, DELAY_COMMENT);
+	}, DELAY_RESULT*2);
 }
 
 function changeImageWhenCorrect(i) {

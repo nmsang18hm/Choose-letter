@@ -22,12 +22,12 @@
 }
 
 #kodi{
-	width: 9vw;
+	width: 17vw;
 	height: 30vh;
 	background-size: 100% 100%;
-	background-image: url("../res/image/Kodi/tips_bear-ipad@2x.png");
+	background-image: url("../res/image/Kodi/usgk$library$canvas_editor$stickers$images$sticker005_bearchar_1-ipad@2x.png");
 	position: absolute;
-	left: 89vw;
+	left: 83vw;
 	top: 70vh;
 	z-index: 2;
 }

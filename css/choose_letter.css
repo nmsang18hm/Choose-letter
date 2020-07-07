@@ -1,7 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 /*Các chỉ số được lựa chọn cho phù hợp*/
-#background{
+#background {
 	width: 100vw; /* background full màn hình */
 	height: 100vh;
 	background-size: 100% 100%;
@@ -10,7 +10,7 @@
 	top: 0px;
 	z-index: 0;
 }
-#corner{
+#corner {
 	width: 17vw;
 	height: 28vh;
 	background-size: 100% 100%;
@@ -21,7 +21,7 @@
 	z-index: 1;
 }
 
-#kodi{
+#kodi {
 	width: 17vw;
 	height: 30vh;
 	background-size: 100% 100%;
@@ -32,7 +32,7 @@
 	z-index: 2;
 }
 
-#home{
+#home {
 	width: 8vw;
 	height: 13vh;
 	background-size: 100% 100%;
@@ -43,7 +43,7 @@
 	z-index: 1;
 }
 
-#animal0{
+#animal0 {
 	width: 17vw;
 	height: 32vh;
 	background-size: 100% 100%;
@@ -54,7 +54,7 @@
 	opacity: 0;
 }
 
-#animal1{
+#animal1 {
 	width: 17vw;
 	height: 32vh;
 	background-size: 100% 100%;
@@ -65,7 +65,7 @@
 	opacity: 0;
 }
 
-#animal2{
+#animal2 {
 	width: 17vw;
 	height: 32vh;
 	background-size: 100% 100%;
@@ -76,7 +76,7 @@
 	opacity: 0;
 }
 
-#letter0{
+#letter0 {
 	width: 4.5vw;
 	height: 13.5vh;
 	background-size: 100% 100%;
@@ -86,7 +86,7 @@
 	z-index: 2;
 }
 
-#letter1{
+#letter1 {
 	width: 4.5vw;
 	height: 13.5vh;
 	background-size: 100% 100%;
@@ -96,7 +96,7 @@
 	z-index: 2;
 }
 
-#letter2{
+#letter2 {
 	width: 4.5vw;
 	height: 13.5vh;
 	background-size: 100% 100%;
@@ -106,7 +106,7 @@
 	z-index: 2;
 }
 
-#congratulation{
+#congratulation {
 	width: 82vw;
 	height: 72vh;
 	background-size: 100% 100%;
@@ -117,7 +117,7 @@
 	z-index: 3;
 }
 
-#restart{
+#restart {
 	width: 20vw;
 	height: 10vh;
 	background-size: 100% 100%;
@@ -126,6 +126,12 @@
 	left: 30vw;
 	top: 62vh;
 	z-index: 4;
+}
+
+#restart:hover {
+	width: 25vw;
+	height: 12.5vh;
+	transform: translate(-2.5vw, -1.25vh);
 }
 
 #bghome {
@@ -148,4 +154,10 @@
 	left: 37vw;
 	top: 32vh;
 	z-index: 2;
+}
+
+#playbutton:hover {
+	width: 30vw;
+	height: 36vh;
+	transform: translate(-2.5vw, -3vh);
 }

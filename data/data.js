@@ -1,1 +1,1 @@
-var data = '[ {"key" : "b", "letter" : ["a", "b", "c"]}, {"key" : "f", "letter" : ["d", "e", "f"]} ]';
+var data = '[ {"key" : "b", "letter" : ["b", "d", "e"]}, {"key" : "f", "letter" : ["c", "a", "f"]} ]';
